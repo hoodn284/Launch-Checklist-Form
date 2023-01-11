@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
    <li>Diameter: ${json[i].diameter}</li>
    <li>Star: ${json[i].star}</li>
    <li>Distance from Earth: ${json[i].distance}</li>
-   <li>Number of Moons: ${json[i].numberOfMoons}</li>
+   <li>Number of Moons: ${json[i].moons}</li>
 </ul>
 <img src="${json[i].image}"></img>`
 
@@ -47,7 +47,7 @@ window.addEventListener("load", function () {
    <li>Diameter: ${planets[i].diameter}</li>
    <li>Star: ${planets[i].star}</li>
    <li>Distance from Earth: ${planets[i].distance}</li>
-   <li>Number of Moons: ${planets[i].numberOfMoons}</li>
+   <li>Number of Moons: ${planets[i].moons}</li>
 </ul>
 <img src="${planets[i].image}"></img>`
       //    missionTarget = document.getElementById("missionTarget");
