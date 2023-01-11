@@ -14,11 +14,13 @@
 */
 // adding form validition with a window load handler
 window.addEventListener("load", function () {
+   let planets = [];
+
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
       response.json().then(function (json) {
          let i = Math.floor(Math.random() * json.length);
          let missionTarget = document.getElementById("missionTarget");
-       
+         planets = json;
          missionTarget.innerHTML = `
          <h2>Mission Destination</h2>
 <ul>
@@ -32,16 +34,27 @@ window.addEventListener("load", function () {
 
 
       });
-      Element.getElementById("refresh").addEventListener("click", function(){
-       
-       missionTarget = document.getElementById("missionTarget");
-       planets = missionTarget.innerHTML[i];
-       return planets;
-        
-      });
    });
 
-  
+   document.getElementById("refresh").addEventListener("click", function () {
+
+         let i = Math.floor(Math.random() * planets.length);
+         let missionTarget = document.getElementById("missionTarget");
+         missionTarget.innerHTML = `
+         <h2>Mission Destination</h2>
+<ul>
+   <li>Name: ${planets[i].name}</li>
+   <li>Diameter: ${planets[i].diameter}</li>
+   <li>Star: ${planets[i].star}</li>
+   <li>Distance from Earth: ${planets[i].distance}</li>
+   <li>Number of Moons: ${planets[i].numberOfMoons}</li>
+</ul>
+<img src="${planets[i].image}"></img>`
+      //    missionTarget = document.getElementById("missionTarget");
+
+      //    return planets;
+
+   });
 
    let form = document.querySelector("#launchForm");
    form.addEventListener("submit", function (event) {
